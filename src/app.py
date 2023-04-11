@@ -6,7 +6,9 @@ import dash_bootstrap_components as dbc
 
 external_stylesheets = [dbc.themes.SLATE]
 
-app = Dash(__name__, external_stylesheets=external_stylesheets)
+app = Dash(__name__, external_stylesheets=external_stylesheets, meta_tags=[
+                {"name": "viewport", "content": "width=device-width, initial-scale=1"}
+            ])
 server = app.server
 
 
@@ -36,12 +38,14 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
-                    dcc.Input(id='distance', type="number", value=0)),
+                    dcc.Input(id='distance', type="number", value=0,)),
                 dbc.Col(
                     dcc.Input(id='speed', type="number", value=0)),
                 dbc.Col(
-                    dcc.Input(id='fuelflow', type="number", value=0)),                    
-            ]
+                    dcc.Input(id='fuelflow', type="number", value=0)),
+               
+                                    
+            ],
         ),
 
         html.Br(),
@@ -104,11 +108,12 @@ app.layout = dbc.Container(
                         html.H3(className="text-danger", id="playtime")
                 )
             ,)])
-    ]
+    ],
+    fluid=True
 )
 
 def Bingo(distance, speed, ff):
-    bingo = (((distance / speed) + (1/3)) * ff) + 22
+    bingo = (((distance / speed) + (1/3)) * ff) + 21
     return bingo
 
 def Playtime(tf, bingo, ff):
@@ -132,7 +137,6 @@ def update_bingo(n_clicks, distance, speed, fuelflow):
         return u'''BINGO IS 
         {:,.0f}
         '''.format(bingo)
-
 
 
 @app.callback(Output('playtime', 'children'),
