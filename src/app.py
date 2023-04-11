@@ -38,14 +38,14 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
-                    dcc.Input(id='distance', type="number", value=0,)),
+                    dcc.Input(id='distance', type="number", value=0, style={"width": 60, "height": 25})),
                 dbc.Col(
-                    dcc.Input(id='speed', type="number", value=0)),
+                    dcc.Input(id='speed', type="number", value=0, style={"width": 60, "height": 25})),
                 dbc.Col(
-                    dcc.Input(id='fuelflow', type="number", value=0)),
+                    dcc.Input(id='fuelflow', type="number", value=0, style={"width": 60, "height": 25})),
                
                                     
-            ],
+            ],align="start"
         ),
 
         html.Br(),
@@ -86,11 +86,11 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
-                    dcc.Input(id='totalfuel', type="number", value=0)),
+                    dcc.Input(id='totalfuel', type="number", value=0, style={"width": 60, "height": 25})),
                 dbc.Col(
-                    dcc.Input(id='bingoinput', type="number", value=0)),
+                    dcc.Input(id='bingoinput', type="number", value=0, style={"width": 60, "height": 25})),
                 dbc.Col(
-                    dcc.Input(id='fuelflow2', type="number", value=0)),
+                    dcc.Input(id='fuelflow2', type="number", value=0, style={"width": 60, "height": 25})),
             ]
         ),
         html.Br(),
